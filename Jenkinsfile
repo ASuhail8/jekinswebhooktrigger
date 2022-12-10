@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker {image 'https://hub.docker.com/repository/docker/asuhail8/ecomm'}
+        docker {image 'asuhail8/ecomm'}
     }
         parameters {
             choice(name: 'ENVIRONMENT', 
