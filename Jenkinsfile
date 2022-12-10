@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        docker {image 'https://hub.docker.com/repository/docker/asuhail8/ecomm'}
+    }
         parameters {
             choice(name: 'ENVIRONMENT', 
             choices : ['DEVELOPMENT', 'STAGING', 'PRODUCTION'],
