@@ -36,6 +36,16 @@ pipeline {
         steps{
             echo "report content contains : ${params.CHANGE_LOG}, ReportName : ${params.ENVIRONMENT}"
         }
+    }
+    stage('Create-artifact'){
+        steps{
+            sh 'set > report.txt'
+        }
+        post {
+            always{
+                archiveArtifacts allowEmptyArchive: true, artifacts: 'report.txt', fingerprint: true, followSymlinks: false, onlyIfSuccessful: true
+            }
+        }
     }    
 
     }
