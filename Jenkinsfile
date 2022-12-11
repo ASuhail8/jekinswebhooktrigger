@@ -41,12 +41,13 @@ pipeline {
         steps{
             sh 'set > report.txt'
         }
-        post {
+        
+    }  
+
+    }
+    post {
             always{
                 archiveArtifacts allowEmptyArchive: true, artifacts: 'report.txt', fingerprint: true, followSymlinks: false, onlyIfSuccessful: true
             }
-        }
-    }    
-
-    }
+        } 
 }
